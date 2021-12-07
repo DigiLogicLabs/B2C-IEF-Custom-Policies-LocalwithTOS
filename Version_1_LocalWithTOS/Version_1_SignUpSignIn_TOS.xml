@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TrustFrameworkPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+  xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" 
+  PolicySchemaVersion="0.3.0.0" 
+  TenantId="yourb2ctenant.onmicrosoft.com" 
+  PolicyId="B2C_1A_Version_1_TOU_SUSI" 
+  PublicPolicyUri="http://yourb2ctenant.onmicrosoft.com/B2C_1A_Version_1_TOU_SUSI">
+
+  <BasePolicy>
+    <TenantId>yourb2ctenant.onmicrosoft.com</TenantId>
+    <PolicyId>B2C_1A_Version_1_TrustFrameworkExtensions</PolicyId>
+  </BasePolicy>
+
+  <RelyingParty>
+    <DefaultUserJourney ReferenceId="B2CSignUpOrSignInWithPasswordToU" />
+    <UserJourneyBehaviors>
+      <SingleSignOn Scope="Tenant" KeepAliveInDays="30" />
+      <SessionExpiryType>Absolute</SessionExpiryType>
+      <SessionExpiryInSeconds>1200</SessionExpiryInSeconds>
+      <ScriptExecution>Allow</ScriptExecution>
+    </UserJourneyBehaviors>
+    <TechnicalProfile Id="PolicyProfile">
+      <DisplayName>PolicyProfile</DisplayName>
+      <Protocol Name="OpenIdConnect" />
+      <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="displayName" />                
+        <OutputClaim ClaimTypeReferenceId="newUser" />
+        <OutputClaim ClaimTypeReferenceId="extension_termsOfUseConsentDateTime" PartnerClaimType="termsOfUseConsentDateTime"  />
+        <OutputClaim ClaimTypeReferenceId="currentTime" />
+        <OutputClaim ClaimTypeReferenceId="email" />
+        <OutputClaim ClaimTypeReferenceId="termsOfUseConsentRequired" />
+        <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" />
+        <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
+        <OutputClaim ClaimTypeReferenceId="extension_ipAddress" DefaultValue="{Context:IPAddress}"/>
+        <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" PartnerClaimType="extension_name" />
+      </OutputClaims>
+      <SubjectNamingInfo ClaimType="sub" />
+    </TechnicalProfile>
+  </RelyingParty>
+
+</TrustFrameworkPolicy>

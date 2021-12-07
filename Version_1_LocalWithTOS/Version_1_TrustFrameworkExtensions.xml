@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TrustFrameworkPolicy 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+  xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" 
+  PolicySchemaVersion="0.3.0.0" 
+  TenantId="yourb2ctenant.onmicrosoft.com" 
+  PolicyId="B2C_1A_Version_1_TrustFrameworkExtensions" 
+  PublicPolicyUri="http://yourb2ctenant.onmicrosoft.com/B2C_1A_Version_1_TrustFrameworkExtensions">
+  
+  <BasePolicy>
+    <TenantId>yourb2ctenant.onmicrosoft.com</TenantId>
+    <PolicyId>B2C_1A_Version_1_TrustFrameworkBase</PolicyId>
+  </BasePolicy>
+
+  <ClaimsProviders>
+
+    <ClaimsProvider>
+      <DisplayName>Google</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="Google-OAUTH">
+          <Metadata>
+            <Item Key="client_id">google_clientid</Item>
+            <Item Key="scope">email public_profile</Item>
+            <Item Key="ClaimsEndpoint">https://graph.google.com/me?fields=id,first_name,last_name,name,email</Item>
+          </Metadata>
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
+    
+  </ClaimsProviders>
+
+</TrustFrameworkPolicy>
