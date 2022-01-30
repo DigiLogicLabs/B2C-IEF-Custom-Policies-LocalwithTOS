@@ -1,4 +1,4 @@
-![Logo of the project](https://raw.githubusercontent.com/csharpener22/B2C-IEF-Custom-Policies-LocalwithTOS/main/images/claims_exchange_flow.png)
+![Logo of the project](https://raw.githubusercontent.com/csharpener22/B2C-IEF-Custom-Policies-LocalwithTOS/main/Images/claims_exchange_flow.png)
 
 # [B2C IEF] (Email) LocalAccount Terms of Service Policies
 > This set of policies I created is based off of the official azure sample policies starter pack repo (https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
